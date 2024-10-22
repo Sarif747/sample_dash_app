@@ -7,3 +7,7 @@ matplotlib
 gunicorn
 ipywidgets
 statsmodels
+sklearn
+numpy
+plotly
+base64
