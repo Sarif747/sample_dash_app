@@ -1,4 +1,5 @@
 import base64
+import os
 import dash_bootstrap_components as dbc
 from dash import Input, Output, State, html
 from dash_bootstrap_components._components.Container import Container
@@ -132,4 +133,4 @@ def update_prediction(n_clicks, prediction_year, selected_year, show_all):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
