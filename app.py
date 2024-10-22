@@ -14,7 +14,7 @@ def encode_image(image_path):
     with open(image_path, 'rb') as f:
         return base64.b64encode(f.read()).decode('ascii')
 
-encoded_image = encode_image(r'F:\sample_dash_app\assets\Resilient.png')
+encoded_image = encode_image("Resilient.png")
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP,"assets/styles.css"],suppress_callback_exceptions=True)
 
