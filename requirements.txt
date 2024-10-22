@@ -10,4 +10,3 @@ statsmodels
 scikit-learn
 numpy
 plotly
-base64
