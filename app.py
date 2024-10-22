@@ -3,6 +3,7 @@ import dash_bootstrap_components as dbc
 from dash import Input, Output, State, html
 from dash_bootstrap_components._components.Container import Container
 import dash
+from flask import Flask
 from dash import dcc, html
 from pages.home import home,plot_two,plot_three,plot_knowledge
 from pages.advance import issues_overview,create_expenditure_graph,expenditure_plot,predict_future
@@ -15,7 +16,7 @@ def encode_image(image_path):
         return base64.b64encode(f.read()).decode('ascii')
 
 encoded_image = encode_image("Resilient.png")
-
+server = Flask(__name__)
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP,"assets/styles.css"],suppress_callback_exceptions=True)
 
 navbar = dbc.Navbar(
