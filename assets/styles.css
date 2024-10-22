@@ -1,0 +1,61 @@
+.navbar {
+    height: 80px; 
+}
+
+.navbar-brand, .nav-link {
+    font-size: 1.5rem; 
+}
+
+.navbar img {
+    height: 40px; 
+}
+.g-0
+{
+    transition: color 0.3s, transform 0.3s;
+}
+.g-0:hover
+{
+    transform: scale(1.1); 
+}
+.nav-link-custom {
+    font-size: 1.1rem; 
+    margin-right: 15px; 
+    transition: color 0.3s, transform 0.3s;
+    color: black; 
+    font-weight: 500;
+}
+.nav-link-custom.active {
+    color: black !important; 
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+.nav-link-custom:hover {
+    color: black; 
+    transform: scale(1.2); 
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link-custom.active:hover {
+    color: black; 
+}
+
+:root {
+    --bs-nav-link-color: black;
+    --bs-nav-link-hover-color: black;
+    --bs-nav-link-active-color: black;
+}
+
+.atag {
+    transition: color 0.3s, transform 0.3s;
+}
+
+.atag:hover{
+    transform: scale(1.1);
+}
+
+.dropdown-center .Select-control {
+    text-align: center;  
+}
+
+.dropdown-center .Select-menu {
+    left: 0;  
+}
