@@ -214,5 +214,3 @@ def update_map(selected_training_type):
 
     return fig_map
 
-if __name__ == '__main__':
-    app.run_server(debug=True)
