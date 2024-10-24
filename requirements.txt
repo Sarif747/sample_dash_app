@@ -11,5 +11,4 @@ scikit-learn
 numpy
 plotly
 flask
-random
 datetime
