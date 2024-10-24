@@ -8,6 +8,8 @@ import plotly.express as px
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import random
+from datetime import datetime, timedelta
 
 
 data = {
@@ -64,6 +66,45 @@ data = {
         "CSFT"
     ]
 }
+
+def generate_synthetic_data(start_year, end_year, num_entries):
+    synthetic_data = {
+        "Date": [],
+        "Counties Served": [],
+        "Participants": [],
+        "Training Type": []
+    }
+
+    counties = [
+        "Clarke County",
+        "Oconee County",
+        "Madison County",
+        "Jackson County",
+        "Morgan County",
+        "Barrow County",
+        "Walton County",
+        "Greene County",
+        "Newton County",
+        "Jasper County",
+        "Hall County",
+        "Habersham County"
+    ]
+
+    training_types = ["CRMI", "YMHAW", "CRMW", "CMW", "ACE/CRM", "CSFT"]
+
+    for _ in range(num_entries):
+        random_days = random.randint(0, (datetime(end_year, 12, 31) - datetime(start_year, 1, 1)).days)
+        random_date = (datetime(start_year, 1, 1) + timedelta(days=random_days)).strftime("%Y-%m-%d")
+
+        synthetic_data["Date"].append(random_date)
+        synthetic_data["Counties Served"].append(random.choice(counties))
+        synthetic_data["Participants"].append(random.randint(5, 50))
+        synthetic_data["Training Type"].append(random.choice(training_types))
+
+    return synthetic_data
+
+synthetic_data = generate_synthetic_data(2019, 2024, 100)
+df_synthetic = pd.DataFrame(synthetic_data)
 
 def home():
    
@@ -373,9 +414,33 @@ knowledge_data = {
     "Increase (%)": [27.4, 34.0, 319.4, 657.7, 796.9]
 }
 
-def plot_knowledge():
-    df_knowledge = pd.DataFrame(knowledge_data)
+def generate_synthetic_knowledge_data(num_entries):
+    categories = [
+        "Understanding of Trauma",
+        "Understanding of Resiliency",
+        "Regional Connectivity",
+        "Enhanced Strategies",
+        "Tangible Next Steps"
+    ]
+    
+    synthetic_data = {
+        "Category": categories,
+        "Pre-Survey": np.random.uniform(50, 60, len(categories)).tolist(),
+        "Post-Survey": np.random.uniform(65, 75, len(categories)).tolist(),
+    }
+    
+    synthetic_data["Increase (%)"] = [
+        ((post - pre) / pre) * 100 for pre, post in zip(synthetic_data["Pre-Survey"], synthetic_data["Post-Survey"])
+    ]
 
+    return pd.DataFrame(synthetic_data)
+
+def plot_knowledge():
+    synthetic_knowledge_df = generate_synthetic_knowledge_data(5)
+    heatmap_data = synthetic_knowledge_df.set_index('Category')[['Pre-Survey', 'Post-Survey']]
+    df_knowledge = pd.DataFrame(knowledge_data)
+    # heatmap_data = df_knowledge[['Pre-Survey', 'Post-Survey']].values
+    categories = df_knowledge['Category']
     fig_knowledge = go.Figure()
 
     fig_knowledge.add_trace(go.Bar(
@@ -443,7 +508,27 @@ def plot_knowledge():
             title_font=dict(size=16, color='darkgreen', family='Arial', weight='bold')
         )
     )
+    fig_heatmap = px.imshow(
+        heatmap_data.T,  
+        labels=dict(x="Category", y="Survey Type", color="Score"),
+        x=heatmap_data.index,
+        y=['Pre-Survey', 'Post-Survey'],
+        color_continuous_scale='Greens',
+        title='Heatmap of Knowledge Assessment Scores'
+    )
 
+    fig_heatmap.update_layout(
+        title='Heatmap of Knowledge Assessment Scores',
+        title_font=dict(size=20, color='darkgreen', family='Arial', weight='bold'),
+        title_x=0,
+        title_y=0.95,
+        xaxis_title='Category',
+        xaxis_title_font=dict(size=16, color='darkgreen', family='Arial', weight='bold'),
+        yaxis_title='Survey Type',
+        yaxis_title_font=dict(size=16, color='darkgreen', family='Arial', weight='bold'),
+        height=400,
+        margin=dict(l=40, r=40, t=60, b=40),
+    )
     return html.Div([
         html.H2(
             "OVERVIEW OF FINDINGS (STRONGER TOGETHER SURVEY RESULTS)",
@@ -464,16 +549,35 @@ def plot_knowledge():
                         'padding': '10px',
                         'backgroundColor': 'white',
                         'margin': '20px auto',
-                        'width': '90%',
+                        'width': '100%',
                     },
                     children=[
                         dcc.Graph(
                             id='knowledge-plot', figure=fig_knowledge,
                             style={'width': '100%', 'height': '400px', 'margin': 'auto'}
-                        )
+                        ),
                     ]
                 )),
         ]),
+        dbc.Row([
+            dbc.Col(
+                html.Div(
+                    style={
+                        'boxShadow': '0px 4px 15px rgba(0, 0, 0, 0.9)',
+                        'borderRadius': '10px',
+                        'padding': '10px',
+                        'backgroundColor': 'white',
+                        'margin': '20px auto',
+                        'width': '100%',
+                    },
+                    children=[
+                        dcc.Graph(
+                            id='knowledge-plot', figure=fig_heatmap,
+                            style={'width': '100%', 'height': '400px', 'margin': 'auto'}
+                        ),
+                    ]
+                )),
+        ])
     ],
         style={'backgroundColor': '#f0f4e1', 'padding': '20px'}  
     )

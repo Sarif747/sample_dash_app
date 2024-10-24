@@ -8,6 +8,7 @@ from flask import Flask
 from dash import dcc, html
 from pages.home import home,plot_two,plot_three,plot_knowledge
 from pages.advance import issues_overview,create_expenditure_graph,expenditure_plot,predict_future
+from pages.home_page_1 import home_1_plot,update_map
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
@@ -103,7 +104,7 @@ def display_page(hash):
     #     ]),home_class, advanced_class, contact_class, donate_class)
     else: 
         home_class += ' active'
-        return (html.Div([home(),plot_two(),plot_three(),plot_knowledge(),footer]), home_class, advanced_class, contact_class, donate_class)
+        return (html.Div([home_1_plot(),plot_two(),plot_three(),plot_knowledge(),footer]), home_class, advanced_class, contact_class, donate_class)
     
 # @app.callback(
 #     Output('expenditure-plot', 'figure'),
@@ -131,6 +132,14 @@ def update_prediction(n_clicks, prediction_year, selected_year, show_all):
         return f"Predicted Expenditures for {prediction_year}:\n{prediction_text}", fig_expenditures
     return "", expenditure_plot(selected_year, show_all,predicted_values={})
 
+@app.callback(
+    Output('map-graph', 'figure'),
+    Input('training-type-dropdown', 'value')
+)
+
+def show_home_plot_graph(selected_training_type):
+    return update_map(selected_training_type)
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
+    app.run_server(debug=True)
+    # app.run_server(host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
