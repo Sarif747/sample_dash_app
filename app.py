@@ -141,5 +141,5 @@ def show_home_plot_graph(selected_training_type):
     return update_map(selected_training_type)
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
-    # app.run_server(host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
+    # app.run_server(debug=True)
+    app.run_server(host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
