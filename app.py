@@ -17,7 +17,7 @@ def encode_image(image_path):
     with open(image_path, 'rb') as f:
         return base64.b64encode(f.read()).decode('ascii')
 
-encoded_image = encode_image("Resilient.png")
+encoded_image = encode_image("georgia_resilient.png")
 server = Flask(__name__)
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP,"assets/styles.css"],suppress_callback_exceptions=True)
 
@@ -27,7 +27,7 @@ navbar = dbc.Navbar(
             html.A(
                 dbc.Row(
                     [
-                        dbc.Col(html.Img(src='data:image/png;base64,' + encoded_image, height="30px")),
+                        dbc.Col(html.Img(src='data:image/png;base64,' + encoded_image, height="40px")),
                     ],
                     align="center",
                     className="g-0",
@@ -141,5 +141,5 @@ def show_home_plot_graph(selected_training_type):
     return update_map(selected_training_type)
 
 if __name__ == '__main__':
-    # app.run_server(debug=True)
-    app.run_server(host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
+    app.run_server(debug=True)
+    # app.run_server(host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
