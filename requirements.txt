@@ -19,6 +19,6 @@ geopy
 SQLAlchemy
 mysql
 pyodbc
-tensorflow-lite
+tensorflow
 numpy
 transformers
