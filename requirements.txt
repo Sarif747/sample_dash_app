@@ -18,8 +18,8 @@ requests
 geopy
 SQLAlchemy
 mysql
-torch
+# torch
 pyodbc
-tensorflow
+# tensorflow
 numpy
 transformers
