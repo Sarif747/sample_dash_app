@@ -20,5 +20,5 @@ geopy
 SQLAlchemy
 mysql
 transformers
-tensorflow==2.0
-torch==1.12.1
+tensorflow
+torch
