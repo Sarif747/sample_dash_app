@@ -1,0 +1,10 @@
+tests/
+*.md
+*.log
+__pycache__/
+test_pages/
+test_generation.py
+test.new_graph.py
+test2.py
+test2_graph_map.py
+test_report_gen.py
