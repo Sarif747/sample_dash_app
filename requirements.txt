@@ -16,14 +16,7 @@ python-dotenv
 cx_Oracle
 openai
 requests
-random
 geopy
-SQLAlchemyError
-PreventUpdate
-create_engine
-base64
-io
+SQLAlchemy
 mysql
-json
-urllib
 transformers
