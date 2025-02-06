@@ -12,7 +12,7 @@ numpy
 plotly
 flask
 datetime
-dotenv
+python-dotenv
 cx_Oracle
 re
 openai
