@@ -32,7 +32,6 @@ df_ML_Model = pd.DataFrame(expenditures, columns=categories, index=years)
 
 X = np.array(years).reshape(-1, 1)  
 
-
 def predict_future(year_to_predict):
     model = LinearRegression()
     predictions = {}
@@ -42,7 +41,6 @@ def predict_future(year_to_predict):
         future_year = np.array([[year_to_predict]])
         predicted_value = model.predict(future_year)[0]
         predictions[category] = predicted_value
-
     return predictions
 
 df_expenditures = pd.DataFrame(expenditures, columns=categories, index=years).reset_index()
@@ -60,23 +58,20 @@ def create_expenditure_graph():
         template='plotly',
         color_discrete_sequence=px.colors.qualitative.Set1
     )
-
     fig_expenditures.update_traces(mode='lines+markers',
                                     line=dict(width=2),
                                     marker=dict(size=8),
                                     textposition='top center')
-
     fig_expenditures.update_layout(
         margin=dict(l=40, r=40, t=40, b=40),
-        paper_bgcolor='rgba(255, 255, 255, 0)',  
-        plot_bgcolor='rgba(255, 255, 255, 0)',
+        plot_bgcolor='white',  
+        paper_bgcolor='white',
         title_font=dict(size=20, color='darkgreen', family='Arial', weight='bold'),
         title_x=0,  
         title_y=0.95, 
         xaxis_title_font=dict(size=16, color='darkgreen', family='Arial', weight='bold'),
         yaxis_title_font=dict(size=16, color='darkgreen', family='Arial', weight='bold'),
     )
-
     return html.Div([
         html.H2("Expenditures by Category Over the Years",
                                 style={'textAlign': 'left', 'marginLeft': '50px', 'color': 'darkgreen'}),
@@ -177,7 +172,6 @@ def create_expenditure_graph():
     )
 
 def expenditure_plot(selected_year,show_all, predicted_values):
-
     if 'ALL' in show_all:
         fig_expenditures = px.line(
             df_long,
@@ -210,12 +204,10 @@ def expenditure_plot(selected_year,show_all, predicted_values):
                 name='Predicted Expenditure',
                 line=dict(color='red', dash='dash')
             )
-
     fig_expenditures.update_traces(mode='lines+markers',
                                     line=dict(width=2),
                                     marker=dict(size=8),
                                     textposition='top center')
-
     fig_expenditures.update_layout(
         margin=dict(l=40, r=40, t=40, b=40),
         paper_bgcolor='rgba(255, 255, 255, 0)',
@@ -226,30 +218,23 @@ def expenditure_plot(selected_year,show_all, predicted_values):
         xaxis_title_font=dict(size=16, color='darkgreen', family='Arial', weight='bold'),
         yaxis_title_font=dict(size=16, color='darkgreen', family='Arial', weight='bold'),
     )
-
     return fig_expenditures
 
-
-def issues_overview():
-    
+def issues_overview():  
     issues = [
         "Fear", "Anxiety", "Loneliness", "Depression", "Hopelessness", 
         "Drug use (non-opioid)", "Alcohol use", "Falling out of recovery", 
         "Loss of self-esteem", "Loss of control", "Overdose", "Opioid Use", 
         "Eating Disorders", "Intimate Partner Violence", "PTSD", "Suicide"
     ]
-    
     data = [
         [2, 3, 59], [1, 4, 58], [1, 4.5, 57], [1, 5, 56], [1, 10, 50],
         [0, 10, 50], [0, 13, 48], [2, 12, 47], [0, 17, 47], [1, 16, 56],
         [1, 15, 46], [1, 14, 46], [1, 12, 46], [1, 19, 43], [3, 18, 42], [2, 17, 42]
     ]
-    
     df_issues = pd.DataFrame(data, columns=["Severity", "Frequency", "Impact"])
     df_issues['Issues'] = issues
-    
     fig = go.Figure()
-    
     fig.add_trace(go.Bar(
         x=df_issues['Issues'],
         y=df_issues['Severity'],
@@ -262,7 +247,6 @@ def issues_overview():
         text=df_issues['Severity'],
         textposition='auto',
     ))
-
     fig.add_trace(go.Bar(
         x=df_issues['Issues'],
         y=df_issues['Frequency'],
@@ -275,7 +259,6 @@ def issues_overview():
         text=df_issues['Frequency'],
         textposition='auto',
     ))
-
     fig.update_layout(
         title='Overview of Issues',
         title_font=dict(size=20, color='darkgreen', family='Arial', weight='bold'),
@@ -288,7 +271,6 @@ def issues_overview():
         margin=dict(l=40, r=40, t=60, b=40),
         plot_bgcolor='rgba(255, 255, 255, 0)',
     )
-    
     return html.Div([
         html.H2(
             "Issues Overview",

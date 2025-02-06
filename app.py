@@ -90,18 +90,6 @@ def display_page(hash):
         advanced_class += ' active'
         return (html.Div([issues_overview(),create_expenditure_graph(),footer
         ]), home_class, advanced_class, contact_class, donate_class)
-    # elif hash == "#contact":
-    #     contact_class += ' active'
-    #     return (html.Div([
-    #         html.H2("Contact Us"),
-    #         html.P("You can contact us at contact@example.com.")
-    #     ]),home_class, advanced_class, contact_class, donate_class)
-    # elif hash == "#donate":
-    #     donate_class += ' active'
-    #     return (html.Div([
-    #         html.H2("Donate Us"),
-    #         html.P("Support us by donating!")
-    #     ]),home_class, advanced_class, contact_class, donate_class)
     else: 
         home_class += ' active'
         return (html.Div([home_1_plot(),plot_two(),plot_three(),plot_knowledge(),footer]), home_class, advanced_class, contact_class, donate_class)

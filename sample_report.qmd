@@ -1,0 +1,43 @@
+---
+title: "Sales Report"
+author: "Your Name"
+format:
+  pdf: default
+---
+
+# Sales and Profit Report
+
+This is a dynamic report showing the sales and profit analysis for the products.
+
+## Data Overview
+
+The following data presents the sales and profit for different products:
+
+| Product | Sales | Profit |
+|---------|-------|--------|
+| A       | 200   | 50     |
+| B       | 150   | 30     |
+| C       | 300   | 80     |
+| D       | 250   | 60     |
+
+## Sales Analysis
+
+Below is a bar chart that shows the sales for each product.
+
+![Sales Chart](sales_chart.png)
+
+### Text Analysis of Sales
+The chart above indicates that product **C** has the highest sales, followed by products **D**, **A**, and **B**.
+
+## Profit Analysis
+
+Below is a bar chart that shows the profit for each product.
+
+![Profit Chart](profit_chart.png)
+
+### Text Analysis of Profit
+From the profit chart, we can observe that **Product C** generates the highest profit, with **Product D** following closely. Products **A** and **B** have relatively lower profits.
+
+## Conclusion
+
+This report summarizes the sales and profit for four products. The visualizations help in identifying key performance indicators, with **Product C** being the top performer in both sales and profit.

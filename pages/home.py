@@ -74,7 +74,6 @@ def generate_synthetic_data(start_year, end_year, num_entries):
         "Participants": [],
         "Training Type": []
     }
-
     counties = [
         "Clarke County",
         "Oconee County",
@@ -89,34 +88,24 @@ def generate_synthetic_data(start_year, end_year, num_entries):
         "Hall County",
         "Habersham County"
     ]
-
     training_types = ["CRMI", "YMHAW", "CRMW", "CMW", "ACE/CRM", "CSFT"]
-
     for _ in range(num_entries):
         random_days = random.randint(0, (datetime(end_year, 12, 31) - datetime(start_year, 1, 1)).days)
         random_date = (datetime(start_year, 1, 1) + timedelta(days=random_days)).strftime("%Y-%m-%d")
-
         synthetic_data["Date"].append(random_date)
         synthetic_data["Counties Served"].append(random.choice(counties))
         synthetic_data["Participants"].append(random.randint(5, 50))
         synthetic_data["Training Type"].append(random.choice(training_types))
-
     return synthetic_data
 
 synthetic_data = generate_synthetic_data(2019, 2024, 100)
 df_synthetic = pd.DataFrame(synthetic_data)
 
-def home():
-   
-    df = pd.DataFrame(data)
-
-   
-    df_filtered = df[df['Participants'].notnull()]
-
-   
+def home():  
+    df = pd.DataFrame(data)  
+    df_filtered = df[df['Participants'].notnull()]  
     fig = go.Figure()
-    green_colors = ['#d9f0d3', '#c8e6c9', '#a5d6a7', '#81c784', '#66bb6a', '#4caf50']
-   
+    green_colors = ['#d9f0d3', '#c8e6c9', '#a5d6a7', '#81c784', '#66bb6a', '#4caf50']  
     fig.add_trace(go.Bar(
         x=df_filtered['Training Type'],
         y=df_filtered['Participants'],
@@ -129,7 +118,6 @@ def home():
         text=df_filtered['Participants'],
         textposition='auto',
     ))
-
     fig.update_layout(
         title='Participants in Different Training Types',
         title_font=dict(size=20, color='darkgreen', family='Arial', weight='bold'),
@@ -145,7 +133,6 @@ def home():
         plot_bgcolor='rgba(255, 255, 255, 0)',  
     )
     fig.update_traces(marker=dict(line=dict(width=2, color='rgba(0, 0, 0, 0.3)')))
-
     return html.Div([
         html.H2(
             "Training Overview",
@@ -216,12 +203,15 @@ data_1 = {
     "June 2022": [6, 9, 5, 8, 13, 13, 29, 17, 8, 4, 20]
 }
 
-def plot_two():
+df_1 = pd.DataFrame(data_1)
+def data_frame_df1():
     df_1 = pd.DataFrame(data_1)
+    return df_1
 
+def plot_two():
+    # df_1 = pd.DataFrame(data_1)
     df_long = pd.melt(df_1, id_vars=['Sector'], value_vars=['December 2021', 'June 2022'],
                       var_name='Month', value_name='Participation')
-
     fig_1 = px.line(
         df_long,
         x='Sector',
@@ -233,16 +223,14 @@ def plot_two():
         template='plotly',
         color_discrete_sequence=['#e1f5e0', '#c8e6c9'] 
     )
-
     fig_1.update_traces(mode='lines+markers',
                         line=dict(color='black'),
-                        marker=dict(size=10, opacity=0.3),
+                        marker=dict(size=10, opacity=1),
                         textposition='top center')
-
     fig_1.update_layout(
         margin=dict(l=40, r=40, t=40, b=40),
-        paper_bgcolor='rgba(255, 255, 255, 0)',  
-        plot_bgcolor='rgba(255, 255, 255, 0)',
+        plot_bgcolor='white',  
+        paper_bgcolor='white',
         title_font=dict(size=20, color='darkgreen', family='Arial', weight='bold'),
         title_x=0,  
         title_y=1, 
@@ -292,6 +280,35 @@ def plot_two():
              style={'backgroundColor': '#f0f4e1', 'padding': '20px'}
             )
 
+def generate_graph_report(df_1):
+    df_long = pd.melt(df_1, id_vars=['Sector'], value_vars=['December 2021', 'June 2022'],
+                      var_name='Month', value_name='Participation')
+    summary_stats = df_long.groupby('Month')['Participation'].describe()
+    mean_december = summary_stats.loc['December 2021', 'mean']
+    mean_june = summary_stats.loc['June 2022', 'mean']
+    std_december = summary_stats.loc['December 2021', 'std']
+    std_june = summary_stats.loc['June 2022', 'std']
+    highest_december_sector = df_long[df_long['Month'] == 'December 2021'].sort_values('Participation', ascending=False).iloc[0]
+    highest_june_sector = df_long[df_long['Month'] == 'June 2022'].sort_values('Participation', ascending=False).iloc[0]
+    lowest_december_sector = df_long[df_long['Month'] == 'December 2021'].sort_values('Participation').iloc[0]
+    lowest_june_sector = df_long[df_long['Month'] == 'June 2022'].sort_values('Participation').iloc[0]
+    explanation = f"""
+    The analysis of sector participation shows key trends over the two months: December 2021 and June 2022.
+    
+    In December 2021, the average participation across all sectors was {mean_december:.2f}, with a standard deviation of {std_december:.2f}. 
+    In comparison, by June 2022, the average participation increased to {mean_june:.2f}, with a standard deviation of {std_june:.2f}. 
+    This indicates that participation was more diverse in June 2022 compared to December 2021.
+    
+    The sector with the highest participation in December 2021 was {highest_december_sector['Sector']} with a participation of {highest_december_sector['Participation']:.2f}.
+    In June 2022, the highest participation was recorded in the sector {highest_june_sector['Sector']} with a participation of {highest_june_sector['Participation']:.2f}.
+    
+    On the other hand, the sector with the lowest participation in December 2021 was {lowest_december_sector['Sector']} with a participation of {lowest_december_sector['Participation']:.2f},
+    while in June 2022, the sector with the lowest participation was {lowest_june_sector['Sector']} with a participation of {lowest_june_sector['Participation']:.2f}.
+    
+    These statistics highlight the significant growth in sector participation between December 2021 and June 2022, driven by various factors such as increased collaboration and regional initiatives.
+    """
+    return explanation
+
 data_2 = {
     "Type of Support": [
         "Trainings",
@@ -303,13 +320,13 @@ data_2 = {
     "Responses": [77, 67, 65, 61, 55],
     "Percentage": [76.2, 66.3, 64.4, 60.4, 54.5]  
 }
+df_2 = pd.DataFrame(data_2)
+def def_2_data_frame():
+    return df_2
 
 def plot_three():
     df_2 = pd.DataFrame(data_2)
-
     fig_2 = go.Figure()
-
- 
     fig_2.add_trace(go.Bar(
         x=df_2['Type of Support'],
         y=df_2['Responses'],
@@ -322,7 +339,6 @@ def plot_three():
         text=df_2['Responses'],
         textposition='auto',
     ))
-
     fig_2.add_trace(go.Scatter(
         x=df_2['Type of Support'],
         y=df_2['Percentage'],
@@ -334,7 +350,6 @@ def plot_three():
         hovertemplate='<b>Type of Support:</b> %{x}<br>' +
                       '<b>Percentage:</b> %{y}%<extra></extra>',
     ))
-
     fig_2.update_layout(
         title='Responses to Types of Support',
         title_font=dict(size=20, color='darkgreen', family='Arial', weight='bold'),
@@ -348,7 +363,6 @@ def plot_three():
         margin=dict(l=40, r=40, t=60, b=40),
         plot_bgcolor='rgba(255, 255, 255, 0)',  
     )
-
     fig_2.update_layout(
         yaxis2=dict(
             title='Percentage',
@@ -359,9 +373,7 @@ def plot_three():
             title_font=dict(size=16, color='darkgreen', family='Arial', weight='bold')
         )
     )
-
     fig_2.update_traces(marker=dict(line=dict(width=2, color='rgba(0, 0, 0, 0.3)')))
-
     return html.Div([
         html.H2(
             "Types of Support Responses",
@@ -401,6 +413,27 @@ def plot_three():
         style={'backgroundColor': 'lightgreen', 'padding': '20px'}
     )
 
+def generate_statistical_report(df_2):
+    report = {
+        "Summary Statistics": {
+            "Responses": {
+                "Mean": df_2['Responses'].mean(),
+                "Median": df_2['Responses'].median(),
+                "Standard Deviation": df_2['Responses'].std(),
+                "Min": df_2['Responses'].min(),
+                "Max": df_2['Responses'].max()
+            },
+            "Percentage": {
+                "Mean": df_2['Percentage'].mean(),
+                "Median": df_2['Percentage'].median(),
+                "Standard Deviation": df_2['Percentage'].std(),
+                "Min": df_2['Percentage'].min(),
+                "Max": df_2['Percentage'].max()
+            }
+        }
+    }
+    return report
+
 knowledge_data = {
     "Category": [
         "Understanding of Trauma",
@@ -422,17 +455,14 @@ def generate_synthetic_knowledge_data(num_entries):
         "Enhanced Strategies",
         "Tangible Next Steps"
     ]
-    
     synthetic_data = {
         "Category": categories,
         "Pre-Survey": np.random.uniform(50, 60, len(categories)).tolist(),
         "Post-Survey": np.random.uniform(65, 75, len(categories)).tolist(),
     }
-    
     synthetic_data["Increase (%)"] = [
         ((post - pre) / pre) * 100 for pre, post in zip(synthetic_data["Pre-Survey"], synthetic_data["Post-Survey"])
     ]
-
     return pd.DataFrame(synthetic_data)
 
 def plot_knowledge():
@@ -442,7 +472,6 @@ def plot_knowledge():
     # heatmap_data = df_knowledge[['Pre-Survey', 'Post-Survey']].values
     categories = df_knowledge['Category']
     fig_knowledge = go.Figure()
-
     fig_knowledge.add_trace(go.Bar(
         x=df_knowledge['Category'],
         y=df_knowledge['Pre-Survey'],
@@ -455,7 +484,6 @@ def plot_knowledge():
         text=df_knowledge['Pre-Survey'],
         textposition='auto',
     ))
-
     fig_knowledge.add_trace(go.Bar(
         x=df_knowledge['Category'],
         y=df_knowledge['Post-Survey'],
@@ -468,7 +496,6 @@ def plot_knowledge():
         text=df_knowledge['Post-Survey'],
         textposition='auto',
     ))
-
     fig_knowledge.add_trace(go.Scatter(
         x=df_knowledge['Category'],
         y=df_knowledge['Increase (%)'],
@@ -480,10 +507,9 @@ def plot_knowledge():
         hovertemplate='<b>Category:</b> %{x}<br>' +
                         '<b>Increase (%):</b> %{y}%<extra></extra>',
     ))
-
     fig_knowledge.update_layout(
             yaxis=dict(range=[0, 900]),  
-        )
+    )
     fig_knowledge.update_layout(
         title='Knowledge Gains from Pre-Survey to Post-Survey',
         title_font=dict(size=20, color='darkgreen', family='Arial', weight='bold'),
@@ -497,7 +523,6 @@ def plot_knowledge():
         margin=dict(l=40, r=40, t=60, b=40),
         plot_bgcolor='rgba(255, 255, 255, 0)',
     )
-
     fig_knowledge.update_layout(
         yaxis2=dict(
             title='Increase (%)',
@@ -516,7 +541,6 @@ def plot_knowledge():
         color_continuous_scale='Greens',
         title='Heatmap of Knowledge Assessment Scores'
     )
-
     fig_heatmap.update_layout(
         title='Heatmap of Knowledge Assessment Scores',
         title_font=dict(size=20, color='darkgreen', family='Arial', weight='bold'),

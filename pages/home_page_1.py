@@ -13,15 +13,12 @@ def generate_synthetic_data(start_year, end_year, num_entries):
         "Participants": [],
         "Training Type": []
     }
-
     counties = [
         "Clarke County", "Oconee County", "Madison County", "Jackson County",
         "Morgan County", "Barrow County", "Walton County", "Greene County",
         "Newton County", "Jasper County", "Hall County", "Habersham County"
     ]
-
     training_types = ["CRMI", "YMHAW", "CRMW", "CMW", "ACE/CRM", "CSFT"]
-
     for _ in range(num_entries):
         random_days = random.randint(0, (datetime(end_year, 12, 31) - datetime(start_year, 1, 1)).days)
         random_date = (datetime(start_year, 1, 1) + timedelta(days=random_days)).strftime("%Y-%m-%d")
@@ -30,7 +27,6 @@ def generate_synthetic_data(start_year, end_year, num_entries):
         synthetic_data["Counties Served"].append(random.choice(counties))
         synthetic_data["Participants"].append(random.randint(5, 50))
         synthetic_data["Training Type"].append(random.choice(training_types))
-
     return synthetic_data
 
 synthetic_data = generate_synthetic_data(2019, 2024, 100)
@@ -73,7 +69,6 @@ fig_map = px.scatter_mapbox(
     center={"lat": 33.9519, "lon": -83.5541},
     title='Participants Distribution in Georgia by County and Training Type',
 )
-
 
 fig_scatter = px.scatter(
     df,
@@ -192,7 +187,6 @@ def home_1_plot():
 
 def update_map(selected_training_type):
     filtered_df = df[df['Training Type'] == selected_training_type]
-
     fig_map = px.scatter_mapbox(
         filtered_df,
         lat='Latitude',
@@ -206,11 +200,9 @@ def update_map(selected_training_type):
         center={"lat": 33.9519, "lon": -83.5541},
         title=f'Participants Distribution in Georgia for {selected_training_type}',
     )
-
     fig_map.update_layout(
         title_font=dict(size=20, color='darkgreen', family='Arial', weight='bold'),
         hovermode='closest'
     )
-
     return fig_map
 

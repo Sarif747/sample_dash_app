@@ -1,0 +1,12 @@
+This data represents a heatmap showing the number of participants for different months and years. Here is a summary of the key information:
+
+- Title: Participants Heatmap by Year and Month
+- X-axis: Month (January to December)
+- Y-axis: Year (2020 to 2024)
+- Color axis represents the number of participants
+- The data is displayed in a color scale ranging from low (purple) to high (yellow) participant numbers
+- The heatmap shows varying participant counts for each month and year combination
+- The highest participant count can be observed for specific months and years
+
+Overall, this heatmap provides a visual representation of participant distribution across different months and years, allowing for easy identification of trends and patterns.
+

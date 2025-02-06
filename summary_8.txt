@@ -1,0 +1,12 @@
+The provided data is in the form of a Sankey diagram, showing the flow of participants across different sectors over the years 2020 to 2024. Here is a summary of the key components in the data:
+
+- Source and target nodes: The participants flow from source nodes (represented by integers) to target nodes (represented by integers) with corresponding values (participant counts).
+
+- Node labels: The nodes are labeled with the corresponding sectors or years. Sectors include Healthcare Providers, Faith-Based Leaders, Juvenile Justice Organizations, Early Childhood and Education, Youth-Serving Organizations, Public Health/Social Services, School Employees, Parents/Caregivers, Business Owners/Employees, Post-Secondary Educators, and First Responders.
+
+- Values: The values represent the number of participants flowing from a source node to a target node.
+
+- Layout: The layout includes information about font sizes, background colors, and plot design elements.
+
+The Sankey diagram visualizes the participant flow across different sectors and
+

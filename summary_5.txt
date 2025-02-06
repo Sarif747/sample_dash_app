@@ -1,0 +1,10 @@
+The provided data is a summary of the distribution of participants across different sectors. Each sector is represented by a violin plot, showing the distribution of the number of participants within each sector.
+
+Here are the key sectors and the corresponding data points:
+1. Healthcare Providers: The number of participants ranges from 1 to 30, with a median value of around 18.
+2. Faith-Based Leaders: The number of participants ranges from 1 to 30, with a median value of around 17.
+3. Juvenile Justice Organizations: The number of participants ranges from 2 to 30, with a median value of around 17.
+4. Early Childhood and Education: The number of participants ranges from 1 to 30, with a median value of around 14.
+5. Youth-Serving Organizations: The number of participants ranges from 1 to 30, with a median value of around 14.
+6. Public Health/Social Services: The number of participants ranges from 1
+

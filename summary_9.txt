@@ -1,0 +1,10 @@
+This data is presented as a bubble chart showing the number of participants in various sectors over the years 2020 to 2024. Each sector is represented by a different color with circles of different sizes corresponding to the number of participants in that sector.
+
+Key components of the data include:
+- Sectors: Business Owners/Employees, Early Childhood and Education, Faith-Based Leaders, First Responders, Healthcare Providers, Juvenile Justice Organizations, Parents/Caregivers, Post-Secondary Educators, Public Health/Social Services, School Employees, and Youth-Serving Organizations.
+- Each sector has data points for the years 2020 to 2024, with the x-axis representing the year and the y-axis representing the number of participants.
+- The size of the circles represents the number of participants in each year for the respective sector.
+- The legend displays the color coding for each sector.
+
+The chart is titled "Bubble Chart of Participants by Year and Sector" and is designed with a white paper
+

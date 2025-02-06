@@ -1,0 +1,62 @@
+---
+title: "Resilient Georgia Report"
+format: pdf
+geometry: margin=1in  # Set the page margins
+fontsize: 11pt  # Set font size
+header-includes:
+  - \usepackage{fancyhdr}  # Use the fancyhdr package to customize headers
+  - \usepackage{graphicx}   # Allow for image scaling if needed
+  - \pagestyle{fancy}  # Apply fancy page style
+  - \fancyhf{}           # Clear all header/footer content
+  - \lhead{\textbf{Resilient Georgia Report}}  # Title in the left header
+  - \rhead{\thepage} 
+  - \lfoot{}                # Clear left footer
+  - \rfoot{}                # Clear right footer
+  - \cfoot{\thepage}        # Center footer with page number
+  - \renewcommand{\footrulewidth}{0.4pt}  # Page number on the right
+  - \setlength{\headheight}{20pt}  # Set header height
+  - \setlength{\topmargin}{0in}   # Remove margin at the top of the page
+  - \setlength{\textheight}{9in}  # Adjust text height for content
+  - \usepackage{titling}    # For custom title configuration
+  - \pretitle{\begin{center}\LARGE\bfseries}  # Adjust the title size and boldness
+  - \posttitle{\end{center}}  
+  # - \usepackage{titlesec}  # For page title control
+  # - \titleformat{\title}[block]{\LARGE\bfseries}{\thetitle}{0.5em}{}
+  # - \newcommand{\mytitle}{\title{\LARGE\bfseries Resilient Georgia Report}}  # Custom title
+---
+
+\newpage
+
+## Impact Metrics Report
+
+<div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;">
+![Traing Data](images/output_update_training_type.png){width=50%}
+![Knowledge Percent](images/output_update_knowledge_percent_box.png){width=50%}
+![Duration Distribution](images/output_update_duration_distribution.png){width=50%}
+![Correlation Heatmap](images/output_update_correlation_heatmap.png){width=50%}
+</div>
+
+## Bar Charts by Sector
+
+<div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;">
+![Participants in Healthcare Providers By Year](images/output_Healthcare_Providers_bar_chart.png){width=50%}
+![Participants in Faith Based Leaders By Year](images/output_Faith-Based_Leaders_bar_chart.png){width=50%}
+![Participants in Juvenile_Justice_Organizations](images/output_Juvenile_Justice_Organizations_bar_chart.png){width=50%}
+![Participants in Early Childhood and Education](images/output_Early_Childhood_and_Education_bar_chart.png){width=50%}
+![Participants in Youth-Serving Organizations](images/output_Youth-Serving_Organizations_bar_chart.png){width=50%}
+![Participants in Public Health Social Services](images/output_Public_Health_Social_Services_bar_chart.png){width=50%}
+![Participants in School Employees](images/output_School_Employees_bar_chart.png){width=50%}
+![Participants in Parents and Caregivers](images/output_Parents_Caregivers_bar_chart.png){width=50%}
+![Participants in Business Owners Employees](images/output_Business_Owners_Employees_bar_chart.png){width=50%}
+![Participants in Post-Secondary Educators](images/output_Post-Secondary_Educators_bar_chart.png){width=50%}
+![Participants in First Responders](images/output_First_Responders_bar_chart.png){width=50%}
+![Participants in Kennesaw Educators](images/output_Kennesaw_Educators_bar_chart.png){width=50%}
+</div>
+## Pie Charts by year
+<div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;">
+![Participants in 2020](images/output_2020_pie_chart.png){width=50%}
+![Participants in 2021](images/output_2021_pie_chart.png){width=50%}
+![Participants in 2022](images/output_2022_pie_chart.png){width=50%}
+![Participants in 2023](images/output_2023_pie_chart.png){width=50%}
+![Participants in 2024](images/output_2024_pie_chart.png){width=50%}
+</div>

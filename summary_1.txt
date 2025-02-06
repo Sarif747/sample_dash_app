@@ -1,0 +1,13 @@
+This data represents a histogram showing the distribution of different training types in Colquitt. Here are some key points:
+
+- The training types included in the data are MHFA (Mental Health First Aid), N/A, QPR (Question, Persuade, Refer), Strengthening Families Georgia, CRM (Community Resiliency Model), and Resilient Parent, Becoming A.
+- Each training type is represented by a colored bar in the histogram.
+- The y-axis represents the count of each training type.
+- The histogram bars are grouped by training type.
+- The layout includes a relative bar mode, showing the bars in relation to each other.
+- The title of the histogram is "Training Types in Colquitt".
+- The x-axis represents the training types, ordered according to the specified category array.
+- The legend provides information on the different training types.
+
+This data visualization provides a clear overview of the distribution of training types in Colquitt.
+

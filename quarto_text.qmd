@@ -1,0 +1,322 @@
+---
+title: "Resilient Georgia Report"
+subtitle: "Comprehensive Impact Analysis"
+author: "Resilient Member"
+date: \today
+format: pdf
+execute:
+  echo: false
+geometry: margin=1in  # Set the page margins
+fontsize: 11pt  # Set font size
+header-includes:
+  - \usepackage{fancyhdr}  # Use the fancyhdr package to customize headers
+  - \usepackage{graphicx}   # Allow for image scaling if needed
+  - \pagestyle{fancy}  # Apply fancy page style
+  - \fancyhf{}           # Clear all header/footer content
+  - \lhead{\textbf{Resilient Georgia Report}}  # Title in the left header
+  - \rhead{\thepage}
+  - \lfoot{}                # Clear left footer
+  - \rfoot{}                # Clear right footer
+  - \cfoot{\thepage}        # Center footer with page number
+  - \renewcommand{\footrulewidth}{0.4pt}  # Page number on the right
+  - \setlength{\headheight}{20pt}  # Set header height
+  - \setlength{\topmargin}{0in}   # Remove margin at the top of the page
+  - \setlength{\textheight}{9in}  # Adjust text height for content
+  - \usepackage{titling}   # For custom title configuration
+  - \pretitle{\begin{center}\LARGE\bfseries}  # Adjust the title size and boldness
+  - \posttitle{\end{center}}  
+---
+
+\newpage
+## Impact Metrics Report
+<div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;">
+![Traing Data](images/output_update_training_type.png){width=100%}
+```{python}
+import textwrap
+with open('summary_1.txt', 'r') as file:
+    text_content_1 = file.read()
+max_width = 82
+width = max_width
+wrapped_lines = textwrap.wrap(text_content_1, width=max_width)
+justified_lines = []
+for line in wrapped_lines:
+    if len(line) < max_width:
+        words = line.split()
+        if len(words) > 1:
+            total_spaces = max_width - sum(len(word) for word in words)
+            space_between_words = total_spaces // (len(words) - 1)
+            extra_spaces = total_spaces % (len(words) - 1)
+            
+            justified_line = words[0]
+            for i in range(1, len(words)):
+                justified_line += ' ' * (space_between_words + (1 if i <= extra_spaces else 0)) + words[i]
+            justified_lines.append(justified_line)
+        else:
+            justified_lines.append(line.ljust(width))
+    else:
+        justified_lines.append(line)
+
+wrapped_text= "\n".join(justified_lines)
+print(wrapped_text)
+```
+
+![Knowledge Percent](images/output_update_knowledge_percent_box.png){width=100%}
+```{python}
+import textwrap
+with open('summary_2.txt', 'r') as file:
+    text_content_2 = file.read()
+max_width = 82
+width = max_width
+wrapped_lines = textwrap.wrap(text_content_2, width=max_width)
+justified_lines = []
+for line in wrapped_lines:
+    if len(line) < max_width:
+        words = line.split()
+        if len(words) > 1:
+            total_spaces = max_width - sum(len(word) for word in words)
+            space_between_words = total_spaces // (len(words) - 1)
+            extra_spaces = total_spaces % (len(words) - 1)
+            
+            justified_line = words[0]
+            for i in range(1, len(words)):
+                justified_line += ' ' * (space_between_words + (1 if i <= extra_spaces else 0)) + words[i]
+            justified_lines.append(justified_line)
+        else:
+            justified_lines.append(line.ljust(width))
+    else:
+        justified_lines.append(line)
+
+wrapped_text= "\n".join(justified_lines)
+print(wrapped_text)
+```
+
+
+![Duration Distribution](images/output_update_duration_distribution.png){width=100%}
+```{python}
+import textwrap
+with open('summary_3.txt', 'r') as file:
+    text_content_3 = file.read()
+max_width = 82
+width = max_width
+wrapped_lines = textwrap.wrap(text_content_3, width=max_width)
+justified_lines = []
+for line in wrapped_lines:
+    if len(line) < max_width:
+        words = line.split()
+        if len(words) > 1:
+            total_spaces = max_width - sum(len(word) for word in words)
+            space_between_words = total_spaces // (len(words) - 1)
+            extra_spaces = total_spaces % (len(words) - 1)
+            
+            justified_line = words[0]
+            for i in range(1, len(words)):
+                justified_line += ' ' * (space_between_words + (1 if i <= extra_spaces else 0)) + words[i]
+            justified_lines.append(justified_line)
+        else:
+            justified_lines.append(line.ljust(width))
+    else:
+        justified_lines.append(line)
+
+wrapped_text= "\n".join(justified_lines)
+print(wrapped_text)
+```
+![Correlation Heatmap](images/output_update_correlation_heatmap.png){width=100%}
+```{python}
+import textwrap
+with open('summary_4.txt', 'r') as file:
+    text_content_4 = file.read()
+max_width = 82
+width = max_width
+wrapped_lines = textwrap.wrap(text_content_4, width=max_width)
+justified_lines = []
+for line in wrapped_lines:
+    if len(line) < max_width:
+        words = line.split()
+        if len(words) > 1:
+            total_spaces = max_width - sum(len(word) for word in words)
+            space_between_words = total_spaces // (len(words) - 1)
+            extra_spaces = total_spaces % (len(words) - 1)
+            
+            justified_line = words[0]
+            for i in range(1, len(words)):
+                justified_line += ' ' * (space_between_words + (1 if i <= extra_spaces else 0)) + words[i]
+            justified_lines.append(justified_line)
+        else:
+            justified_lines.append(line.ljust(width))
+    else:
+        justified_lines.append(line)
+
+wrapped_text= "\n".join(justified_lines)
+print(wrapped_text)
+```
+</div>
+
+## Sector Graph Representation
+### Distribution of Participants Across Sectors
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+![Distribution of Participants Across Sectors](images/output_violin.png){width=100%}
+```{python}
+import textwrap
+with open('summary_5.txt', 'r') as file:
+    text_content_5 = file.read()
+max_width = 82
+width = max_width
+wrapped_lines = textwrap.wrap(text_content_5, width=max_width)
+justified_lines = []
+for line in wrapped_lines:
+    if len(line) < max_width:
+        words = line.split()
+        if len(words) > 1:
+            total_spaces = max_width - sum(len(word) for word in words)
+            space_between_words = total_spaces // (len(words) - 1)
+            extra_spaces = total_spaces % (len(words) - 1)
+            
+            justified_line = words[0]
+            for i in range(1, len(words)):
+                justified_line += ' ' * (space_between_words + (1 if i <= extra_spaces else 0)) + words[i]
+            justified_lines.append(justified_line)
+        else:
+            justified_lines.append(line.ljust(width))
+    else:
+        justified_lines.append(line)
+
+wrapped_text= "\n".join(justified_lines)
+print(wrapped_text)
+```
+</div>
+
+### Participants Heatmap by Year and Month
+
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 100px;">
+![Participants Heatmap by Year and Month](images/output_heatmap.png){width=50%}
+```{python}
+import textwrap
+with open('summary_6.txt', 'r') as file:
+    text_content_6 = file.read()
+max_width = 82
+width = max_width
+wrapped_lines = textwrap.wrap(text_content_6, width=max_width)
+justified_lines = []
+for line in wrapped_lines:
+    if len(line) < max_width:
+        words = line.split()
+        if len(words) > 1:
+            total_spaces = max_width - sum(len(word) for word in words)
+            space_between_words = total_spaces // (len(words) - 1)
+            extra_spaces = total_spaces % (len(words) - 1)
+            
+            justified_line = words[0]
+            for i in range(1, len(words)):
+                justified_line += ' ' * (space_between_words + (1 if i <= extra_spaces else 0)) + words[i]
+            justified_lines.append(justified_line)
+        else:
+            justified_lines.append(line.ljust(width))
+    else:
+        justified_lines.append(line)
+
+wrapped_text= "\n".join(justified_lines)
+print(wrapped_text)
+```
+</div>
+
+### Boxplot of Participants by Sector
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+![Boxplot of Participants by Sector](images/output_boxplot.png){width=100%}
+```{python}
+import textwrap
+with open('summary_7.txt', 'r') as file:
+    text_content_7 = file.read()
+max_width = 82
+width = max_width
+wrapped_lines = textwrap.wrap(text_content_7, width=max_width)
+justified_lines = []
+for line in wrapped_lines:
+    if len(line) < max_width:
+        words = line.split()
+        if len(words) > 1:
+            total_spaces = max_width - sum(len(word) for word in words)
+            space_between_words = total_spaces // (len(words) - 1)
+            extra_spaces = total_spaces % (len(words) - 1)
+            
+            justified_line = words[0]
+            for i in range(1, len(words)):
+                justified_line += ' ' * (space_between_words + (1 if i <= extra_spaces else 0)) + words[i]
+            justified_lines.append(justified_line)
+        else:
+            justified_lines.append(line.ljust(width))
+    else:
+        justified_lines.append(line)
+
+wrapped_text= "\n".join(justified_lines)
+print(wrapped_text)
+```
+
+</div>
+
+### Participant Flow Across Years and Sectors
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+![Participant Flow Across Years and Sectors](images/output_sankey.png){width=100%}
+```{python}
+import textwrap
+with open('summary_8.txt', 'r') as file:
+    text_content_8 = file.read()
+max_width = 82
+width = max_width
+wrapped_lines = textwrap.wrap(text_content_8, width=max_width)
+justified_lines = []
+for line in wrapped_lines:
+    if len(line) < max_width:
+        words = line.split()
+        if len(words) > 1:
+            total_spaces = max_width - sum(len(word) for word in words)
+            space_between_words = total_spaces // (len(words) - 1)
+            extra_spaces = total_spaces % (len(words) - 1)
+            
+            justified_line = words[0]
+            for i in range(1, len(words)):
+                justified_line += ' ' * (space_between_words + (1 if i <= extra_spaces else 0)) + words[i]
+            justified_lines.append(justified_line)
+        else:
+            justified_lines.append(line.ljust(width))
+    else:
+        justified_lines.append(line)
+
+wrapped_text= "\n".join(justified_lines)
+print(wrapped_text)
+```
+
+</div>
+
+### Bubble Chart of Participants by Year and Sector
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+![Bubble Chart of Participants by Year and Sector](images/output_bubble.png){width=100%}
+```{python}
+import textwrap
+with open('summary_9.txt', 'r') as file:
+    text_content_9 = file.read()
+max_width = 82
+width = max_width
+wrapped_lines = textwrap.wrap(text_content_9, width=max_width)
+justified_lines = []
+for line in wrapped_lines:
+    if len(line) < max_width:
+        words = line.split()
+        if len(words) > 1:
+            total_spaces = max_width - sum(len(word) for word in words)
+            space_between_words = total_spaces // (len(words) - 1)
+            extra_spaces = total_spaces % (len(words) - 1)
+            
+            justified_line = words[0]
+            for i in range(1, len(words)):
+                justified_line += ' ' * (space_between_words + (1 if i <= extra_spaces else 0)) + words[i]
+            justified_lines.append(justified_line)
+        else:
+            justified_lines.append(line.ljust(width))
+    else:
+        justified_lines.append(line)
+
+wrapped_text= "\n".join(justified_lines)
+print(wrapped_text)
+```
+
+</div>

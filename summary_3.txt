@@ -1,0 +1,10 @@
+The data provided is a histogram representing the distribution of training durations in Colquitt. The x-axis represents the duration in hours, and the y-axis represents the count of occurrences for each duration. 
+
+The durations of training sessions are as follows:
+- 1 hour: 6 occurrences
+- 2 hours: 2 occurrences
+- 3 hours: 3 occurrences
+- 4 hours: 2 occurrences
+
+The histogram is set to show the distribution of training durations in a relative mode. The title of the graph is "Training Duration Distribution in Colquitt."
+

@@ -1,0 +1,14 @@
+The data provided is a box plot showing the percentage of participants with increased knowledge in Colquitt. The plot presents the following information:
+
+- Title: "Percent of Participants with Increased Knowledge in Colquitt"
+- Y-axis label: "Percent of participants with increased knowledge, skills, and/or abilities"
+- Data:
+    - The percentages shown on the y-axis range from 61% to 99%
+    - Some values are represented as "N/A", indicating missing data
+- Visualization:
+    - Each box on the plot represents the distribution of the percentage values
+    - Box mode is set to "group", implying that the boxes are grouped together
+    - The plot does not have a legend but shows the individual data points
+
+This summary provides an overview of the data and visualization that can be used to generate a report or draw insights about the percentage of participants with increased knowledge in Colquitt.
+

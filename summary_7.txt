@@ -1,0 +1,6 @@
+The data for report generation includes box plots of the number of participants in different sectors. Each box plot represents a specific sector such as Healthcare Providers, Faith-Based Leaders, Juvenile Justice Organizations, Early Childhood and Education, Youth-Serving Organizations, Public Health/Social Services, School Employees, Parents/Caregivers, Business Owners/Employees, Post-Secondary Educators, and First Responders.
+
+The y-axis represents the number of participants, and each box plot shows a summary of the data distribution within each sector. The outliers are also displayed for each sector.
+
+The title of the plot is "Boxplot of Participants by Sector" with a green font style. The x-axis and y-axis titles are also styled in green. The background is white for both the paper and the plot.
+
