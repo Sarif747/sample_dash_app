@@ -14,7 +14,6 @@ flask
 datetime
 python-dotenv
 cx_Oracle
-re
 openai
 requests
 random
