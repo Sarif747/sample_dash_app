@@ -12,7 +12,6 @@ numpy
 plotly
 flask
 datetime
-os
 dotenv
 cx_Oracle
 re
