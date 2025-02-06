@@ -17,10 +17,16 @@ import plotly.io as pio
 from sqlalchemy import create_engine, text
 from transformers import pipeline
 import openai
-
+from dotenv import load_dotenv
+import os
 
 summarizer = pipeline("text2text-generation", model="facebook/bart-large-cnn")
-openai.api_key = "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"
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+print(OPENAI_API_KEY)
+
+openai.api.key = OPENAI_API_KEY
+# openai.api_key = "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"
 
 def generate_statistical_summary(data_description):
     # prompt = f"Generate a statistical summary based on the following data: {data_description}"
