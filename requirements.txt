@@ -8,7 +8,6 @@ gunicorn
 ipywidgets
 statsmodels
 scikit-learn
-numpy
 plotly
 flask
 datetime
@@ -19,6 +18,8 @@ requests
 geopy
 SQLAlchemy
 mysql
-transformers
-tensorflow==2.10.0
 torch
+pyodbc
+tensorflow==2.9.0
+numpy==1.21.6
+transformers==4.26.1
