@@ -15,7 +15,6 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 print(OPENAI_API_KEY)
 openai.api_key = OPENAI_API_KEY
 
-# openai.api_key = "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"
 
 user_table = "events"
 user_column_event_name = "event_name"
